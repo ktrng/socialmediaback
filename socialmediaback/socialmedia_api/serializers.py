@@ -13,6 +13,28 @@ class UserSerializer(serializers.ModelSerializer):
             'last_name',
             'dob',
             'friends',
-            'posts'
+            'posts',
+            'comments'
+        )
 
+class PostSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Post
+        fields = (
+            'post_id',
+            'author',
+            'body',
+            'comments',
+            'likes'
+        )
+
+class CommentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Comment
+        fields = (
+            'comment_id',
+            'author',
+            'postedto',
+            'body',
+            'likes'
         )
