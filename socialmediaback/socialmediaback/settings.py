@@ -31,6 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    #third party apps
+    'rest_framework',
     'socialmedia_api',
     'django.contrib.admin',
     'django.contrib.auth',

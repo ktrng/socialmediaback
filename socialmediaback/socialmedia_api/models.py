@@ -16,7 +16,8 @@ class User(models.Model):
     # not sure if this will work tbh, will try and find out
     friends = models.ManyToManyField('self')
 
-    posts = models.ForeignKey('Post', on_delete=models.CASCADE)
+    posts = models.ForeignKey('Post', blank=True, on_delete=models.CASCADE)
+    comments = models.ForeignKey('Comment', blank=True, on_delete=models.CASCADE)
 
 class Post(models.Model):
     post_id = models.BigAutoField(primary_key=True)
@@ -27,7 +28,7 @@ class Post(models.Model):
 
 class Comment(models.Model):
     comment_id = models.BigAutoField(primary_key=True)
-    author = models.OneToOneField('User', on_delete=models.CASCADE)
+    author = models.ForeignKey('User', on_delete=models.CASCADE)
     postedto = models.ForeignKey('Post', on_delete=models.CASCADE)
     body = models.CharField(max_length=640)
     likes = models.IntegerField()
