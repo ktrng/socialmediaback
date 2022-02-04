@@ -17,6 +17,7 @@ class UserSerializer(serializers.ModelSerializer):
             'comments'
         )
 
+
 class PostSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
@@ -27,6 +28,7 @@ class PostSerializer(serializers.ModelSerializer):
             'comments',
             'likes'
         )
+
 
 class CommentSerializer(serializers.ModelSerializer):
     class Meta:
